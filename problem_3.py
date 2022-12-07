@@ -64,10 +64,9 @@ def test_function(test_case):
 
 # Test case 1
 test_function([[1, 2, 3, 4, 5], [542, 31]])
-test_case = [[4, 6, 2, 5, 9, 8], [964, 852]]
 
 #Test case 2
-print(rearrange_digits([4, 2, 2, 5, 7, 3, 1, 1, 9, 8]))   #[97421, 85321]
+test_function([[4, 2, 2, 5, 7, 3, 1, 1, 9, 8], [97421, 85321]])
 
 # Test case 3
 print(rearrange_digits([1]))  # [None, None]
