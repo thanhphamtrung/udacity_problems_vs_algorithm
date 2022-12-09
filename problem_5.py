@@ -21,7 +21,6 @@ class TrieNode:
         return suffixes
 
 
-
 # The Trie itself containing the root node and insert/find functions
 class Trie:
     def __init__(self):
@@ -48,20 +47,20 @@ class Trie:
         return cur_node
 
 
-# # Test cases for find function:
-# # Test data:
-# list_word = ['teacher', 'chemistry', 'biology', 'geography', 'exercise']
-# prefix_list = ['t', 'ch', 'z', 'bio', 'pre']
-# trie = Trie()
+# Test cases for find function:
+# Test data:
+list_word = ['teacher', 'chemistry', 'biology', 'geography', 'exercise']
+prefix_list = ['t', 'ch', 'z', 'bio', 'pre']
+trie = Trie()
 
-# for word in list_word:
-#     trie.insert(word)
+for word in list_word:
+    trie.insert(word)
 
-# for p in prefix_list:
-#     if trie.find(p):
-#         print('The prefix "{}" IS IN list word.'.format(p))
-#     else:
-#         print('The prefix "{}" IS NOT IN list word.'.format(p))
+for p in prefix_list:
+    if trie.find(p):
+        print('The prefix "{}" IS IN list word.'.format(p))
+    else:
+        print('The prefix "{}" IS NOT IN list word.'.format(p))
 
 
 # Test cases for suffixes function:
