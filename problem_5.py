@@ -1,34 +1,35 @@
-## Represents a single node in the Trie
+# Represents a single node in the Trie
 class TrieNode:
     def __init__(self):
-        ## Initialize this node in the Trie
+        # Initialize this node in the Trie
         self.is_word = False
         self.children = {}
 
     def insert(self, char):
-        ## Add a child node in this Trie
+        # Add a child node in this Trie
         self.children[char] = TrieNode()
 
-    def suffixes(self, suffix = ''):
-    ## Recursive function that collects the suffix for 
-    ## all complete words below this point``
-        output = []
-        childs = self.children
-        for values in childs:
-            if childs[values].children:
-                output.extend(childs[values].suffixes(suffix + values))
-        return output
+    def suffixes(self, suffix=''):
+        # Recursive function that collects the suffix for
+        # all complete words below this point``
+        suffixes = []
+        for char, node in self.children.items():
+            if node.is_word:
+                suffixes.append(suffix + char)
+            if node.children:
+                suffixes += node.suffixes(suffix + char)
+        return suffixes
 
 
 
-## The Trie itself containing the root node and insert/find functions
+# The Trie itself containing the root node and insert/find functions
 class Trie:
     def __init__(self):
-        ## Initialize this Trie (add a root node)
+        # Initialize this Trie (add a root node)
         self.root = TrieNode()
 
     def insert(self, word):
-        ## Add a word to the Trie
+        # Add a word to the Trie
         cur_node = self.root
         for char in word:
             if char not in cur_node.children:
@@ -37,13 +38,13 @@ class Trie:
         cur_node.is_word = True
 
     def find(self, prefix):
-        ## Find the Trie node that represents this prefix
+        # Find the Trie node that represents this prefix
         cur_node = self.root
         for char in prefix:
             if char not in cur_node.children:
                 return None
             cur_node = cur_node.children[char]
-        
+
         return cur_node
 
 
@@ -64,30 +65,15 @@ class Trie:
 
 
 # Test cases for suffixes function:
-MyTrie = Trie()
+trie = Trie()
 wordList = [
-    "ant", "anthology", "antagonist", "antonym", 
-    "fun", "function", "factory", 
+    "ant", "anthology", "antagonist", "antonym",
+    "fun", "function", "factory",
     "trie", "trigger", "trigonometry", "tripod"
 ]
 for word in wordList:
-    MyTrie.insert(word)
+    trie.insert(word)
 
+word_to_find_suffixes = trie.find(prefix='a')
 
-from ipywidgets import widgets
-from IPython.display import display
-from ipywidgets import interact
-
-def f(prefix):
-    if prefix != '':
-        prefixNode = MyTrie.find(prefix)
-        if prefixNode:
-            print('\n'.join(prefixNode.suffixes()))
-        else:
-            print(prefix + " not found")
-    else:
-        print('')
-
-print(f('antony'))
-
-                
+print(word_to_find_suffixes.suffixes())
