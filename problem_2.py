@@ -87,3 +87,8 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+
+# edge case
+print(rotated_array_search([], 11))
+print(rotated_array_search(None, 11))
+print(rotated_array_search([1], 11))
