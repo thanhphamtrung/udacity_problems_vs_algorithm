@@ -5,4 +5,4 @@ loop through the sorted list and distribute number in to 2 answer list sequentia
 
 Time and Space Complexities:
 - Time: O(logn)
-- Space: O(n)
+- Space: O(logn)

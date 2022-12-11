@@ -3,5 +3,5 @@ so I used binary search with adding a condition to get the floor value as the re
 
 Time and Space Complexities:
 - Time: O(logn)
-- Space: O(1)
+- Space: O(logn)
 
