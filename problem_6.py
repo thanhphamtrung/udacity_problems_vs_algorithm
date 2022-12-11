@@ -9,6 +9,8 @@ def get_min_max(ints):
     Args:
        ints(list): list of integers containing one or more integers
     """
+    if ints is None or len(ints) == 0:
+        return (None, None)
     min = sys.maxsize
     max = -1
 
@@ -17,12 +19,16 @@ def get_min_max(ints):
             min = num
         if num > max:
             max = num
-    return (min,max)
+    return (min, max)
 
 
 # Example Test Case of Ten Integers
 
-l = [i for i in range(0, 10)]  # a list containing 0 - 9
-random.shuffle(l)
+# l = [i for i in range(0, 10)]  # a list containing 0 - 9
+# random.shuffle(l)
 
-print("Pass" if ((0, 9) == get_min_max(l)) else "Fail")
+# print("Pass" if ((0, 9) == get_min_max(l)) else "Fail")
+
+# Edge case
+print(get_min_max([]))      # Should return (None, None)
+print(get_min_max([1]))     # Should return (1, 1)

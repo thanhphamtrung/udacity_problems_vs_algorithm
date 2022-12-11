@@ -68,6 +68,7 @@ test_function([[1, 2, 3, 4, 5], [542, 31]])
 #Test case 2
 test_function([[4, 2, 2, 5, 7, 3, 1, 1, 9, 8], [97421, 85321]])
 
+#Edge cases:
 # Test case 3
 print(rearrange_digits([1]))  # [None, None]
 

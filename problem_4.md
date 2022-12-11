@@ -1,5 +1,7 @@
-Just use a list to store the number of occurrences of 0,1,2.
-Loop through the above list once then create the out out O(n)
+The idea is use low for `0`, mid for `1` and high for `2`, whenever 
+- input_list[mid] == 0 swap mid with low
+- input_list[mid] == 2 swap mid with high,
+- input_list[mid] == 1 do nothing,
 
 Time and Space Complexities:
 - Time: O(n)
